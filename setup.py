@@ -1,28 +1,19 @@
-"""
-pmath
-*****
-
-`Code available`_ on Github.
-
-.. _Code available: git@gist.github.com:/919042f19ab6932447df.git
-
-Bringing the math tools of Python to the command-line
-------------------------------------------
-
-"""
-
 from setuptools import setup
 from os import path
 import os
 del os.link
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 setup(  name='pmath',
-        version='0.1',
+        version='0.4',
         
         description = ("Bringing the math tools of Python to the command-line"),
-        long_description=__doc__.strip(),
+        long_description=readme(),
         
-        url = "https://pmath.lostinmy.com",
+        url = "https://github.com/wackywendell/pmath",
         
         author="Wendell Smith",
         author_email="wackywendell@gmail.com",

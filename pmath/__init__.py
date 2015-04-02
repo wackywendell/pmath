@@ -51,6 +51,7 @@ parser.add_option("-c", "--cmath", action="store_true",
                   help="use complex math")
 parser.add_option("-f", "--format", default='',
     help="How to format the result, e.g. '.3f'")
+parser.add_option('--version', action="store_true", help="print version information and quit")
 
 def evaluator(args, globald, format=''):
     locald = {}
@@ -64,6 +65,11 @@ def evaluator(args, globald, format=''):
 
 def main():
     (opts, args) = parser.parse_args()
+    if opts.version:
+        import pkg_resources
+        pkg = pkg_resources.get_distribution(__package__)
+        print('pmath', pkg.version)
+        return
 
     globald = vars(math) if not opts.cmath else vars(cmath)
     globald = dict([(k,v) for k,v in globald.items() if k[:1] != '_'])
