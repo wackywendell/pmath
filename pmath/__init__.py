@@ -62,7 +62,7 @@ def evaluator(args, globald, format=''):
     value = eval(arg, globald, locald)
     return '{value:{format}}'.format(value=value, format=format)
 
-if __name__ == '__main__':
+def main():
     (opts, args) = parser.parse_args()
 
     globald = vars(math) if not opts.cmath else vars(cmath)
@@ -74,3 +74,6 @@ if __name__ == '__main__':
     args = [splitarg.strip() for arg in args for splitarg in arg.split(';')]
 
     print(evaluator(args, globald, format=opts.format))
+
+if __name__ == '__main__':
+    main()
